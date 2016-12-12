@@ -44,7 +44,7 @@ data <- {
 }
 
 # TASK 2
-# Extracts subjects means, standard deviations, and activities
+# Extracts subjects, means, standard deviations, and activities
 onlyMeanAndSD <- data[, grep("subjects|mean()|std()|activities", names(data))]
 
 # TASK 3
@@ -66,7 +66,7 @@ withActivityNames <- {
 # TASK 5
 aggregated <- aggregate(. ~ subjects + activity, data = withActivityNames, FUN = mean)
 
-# Store the datasets (not a part of the assignment)
+# Store the datasets
 outputDirectory <- "data/processed"
 dir.create(outputDirectory, recursive = TRUE)
 write.table(withActivityNames, file=paste(outputDirectory, "/activities.txt", sep = ""), col.names = TRUE)
